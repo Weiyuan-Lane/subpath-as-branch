@@ -3,9 +3,9 @@
 const program = require('commander')
 program
   .version('0.0.7')
-  .option('-p, --path <value>', 'Target path to submit')
-  .option('-b, --branch <value>', 'Branch name')
-  .option('-f, --force', 'Force push')
-  .option('-c, --clean', 'Clean git in subpath')
+  .option('-p, --path <value>', 'target path to submit')
+  .option('-b, --branch <value>', 'branch name')
+  .option('-f, --force', 'force push')
+  .option('-c, --clean', 'clean git in subpath')
 
 module.exports = program
