@@ -16,8 +16,11 @@ if (!cli.path || !cli.branch ) {
 // Get the required fields
 const targetPath = cli.path
 const targetBranch = cli.branch
+const forcePush = cli.force
 
-// Step 1: Check if git is supported by the machine's cli 
+console.log('forcePush', forcePush);
+
+// Step 1: Check if git is supported by the machine's cli
 logger.log('1. Checking for git binary')
 const gitPresence = exec('which git')
 if (gitPresence.status !== 0) {
@@ -56,7 +59,8 @@ if (gitAddOriginOutput.status !== 0) {
 
 // Step 5. Push branch to github
 logger.log('5. Push branch to github')
-const gitPushBranchOutput = exec(`cd ${targetPath} && git checkout -b ${targetBranch} && git add --all && git commit -m 'subpath-as-branch publish' && git push -f --set-upstream origin ${targetBranch}`)
+// const gitPushBranchOutput = exec(`cd ${targetPath} && git checkout -b ${targetBranch} && git add --all && git commit -m 'subpath-as-branch publish' && git push -f --set-upstream origin ${targetBranch}`)
+const gitPushBranchOutput = exec(`cd ${targetPath} && git checkout -b ${targetBranch} && git add --all && git commit -m 'subpath-as-branch publish' && git push --set-upstream origin ${targetBranch}`)
 if (gitPushBranchOutput.status !== 0) {
   logger.error(`push branch via git failed for the following reason(s): \n${gitPushBranchOutput.message}`)
 }
