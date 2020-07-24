@@ -1,6 +1,6 @@
 {
   "name": "subpath-as-branch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Publish a directory to a different branch. Useful for static sites / github pages.",
   "bin": {
     "subpath-as-branch": "./bin/index.js"

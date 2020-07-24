@@ -33,7 +33,8 @@ Usage: subpath-as-branch [options]
 
 Options:
   -V, --version         output the version number
-  -p, --path <value>    Target path to submit
-  -b, --branch <value>  Branch name
+  -p, --path <value>    target path to submit
+  -b, --branch <value>  branch name
+  -c, --clean           clean git in subpath
   -h, --help            output usage information
 ```
