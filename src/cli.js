@@ -6,5 +6,6 @@ program
   .option('-p, --path <value>', 'Target path to submit')
   .option('-b, --branch <value>', 'Branch name')
   .option('-f, --force', 'Force push')
+  .option('-c, --clean', 'Clean git in subpath')
 
 module.exports = program
