@@ -17,7 +17,7 @@ if (!cli.path || (!cli.branch && !cli.clean)) {
 // Get the required fields
 const targetPath = cli.path
 const targetBranch = cli.branch
-const forcePush = cli.force ? '-f' : ''
+const forceFlag = cli.force ? '-f' : ''
 const needClean = Boolean(cli.clean)
 
 if (!needClean) {
@@ -61,7 +61,7 @@ if (!needClean) {
 
   // Step 5. Push branch to origin
   logger.log('5. Push branch to origin')
-  const gitPushBranchOutput = exec(`cd ${targetPath} && git checkout -b ${targetBranch} && git add --all && git commit -m 'subpath-as-branch publish' && git push ${forcePush} --set-upstream origin ${targetBranch}`)
+  const gitPushBranchOutput = exec(`cd ${targetPath} && git checkout -b ${targetBranch} && git add --all && git commit -m 'subpath-as-branch publish' && git push ${forceFlag} --set-upstream origin ${targetBranch}`)
   if (gitPushBranchOutput.status !== 0) {
     logger.error(`push branch via git failed for the following reason(s): \n${gitPushBranchOutput.message}`)
   }
